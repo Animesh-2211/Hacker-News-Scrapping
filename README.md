@@ -12,6 +12,9 @@ A Spring Boot application that scrapes real-time stories from Hacker News and br
 - MySQL
 - Maven
 
+### DataBase
+<img width="885" alt="image" src="https://github.com/user-attachments/assets/e310583c-7820-49cc-bc47-b50ba47de881" />
+
 ## Setup
 
 ### 1. Clone the Repository
@@ -19,8 +22,7 @@ A Spring Boot application that scrapes real-time stories from Hacker News and br
 git clone https://github.com/your-username/hackernews-scraper.git
 cd hackernews-scraper
 
-### DataBase
-<img width="885" alt="image" src="https://github.com/user-attachments/assets/e310583c-7820-49cc-bc47-b50ba47de881" />
+
 
 
 
