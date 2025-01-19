@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hacker News Scraper</title>
+</head>
+<body>
+    <h1>Real-Time Hacker News Stories</h1>
+    <ul id="stories"></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs/lib/stomp.min.js"></script>
+    <script>
+        let socket = new SockJS('http://localhost:8080/ws');
+        let stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function (frame) {
+            console.log('Connected: ' + frame);
+            stompClient.subscribe('/topic/newStories', function (message) { // Corrected topic
+                console.log("Received message: " + message.body); // Debugging log
+                let story = JSON.parse(message.body);
+                console.log("Parsed story: ", story); // Debugging log
+                let listItem = document.createElement('li');
+                listItem.textContent = story.title + ' - ' + story.url;
+                document.getElementById('stories').appendChild(listItem);
+            });
+        });
+    </script>
+</body>
+</html>
